@@ -1,3 +1,5 @@
+package week1
+
 object Boot extends App with Speaker {
   println("Hello world!")
 
@@ -133,7 +135,7 @@ object Boot extends App with Speaker {
   def typeCasting1(num: Double) = num + 10
   def typeCasting2(num: Int) = num + 10
 
-  println(typeCasting1(Short(3)))
+  println(typeCasting1(3.toShort))
 //  println(typeCasting2(4.5D))  // Error
 
 }
