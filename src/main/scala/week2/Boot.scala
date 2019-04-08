@@ -132,7 +132,7 @@ object Boot {
 
     val temp = for {
       i <- list
-    } yield i
+    } yield 5 * i
 
     println(temp)
 
