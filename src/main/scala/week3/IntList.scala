@@ -26,6 +26,38 @@ sealed trait IntList {
       println()
   }
 
+  // x => x * 2   (Int) => (Int)
+//  def mapTemp(func: Int => Int): IntList = {
+//
+//    def internalMap(list: IntList, acc: IntList)(f: Int => Int): IntList = list match {
+//      case IntListNode(data, tail) =>
+//        val result: Int = f(data)
+//
+//        IntListNode(result, tail.map(func))
+//
+//      case IntListEnd =>
+//        acc
+//    }
+//
+//  }
+
+  def map(func: Int => Int): IntList = this match {
+    case IntListNode(data, tail) =>
+      IntListNode(func(data), tail.map(func))
+
+    case IntListEnd => IntListEnd
+  }
+
+  def lastNode: IntListNode = this match {
+    case intNode @ IntListNode(data, tail) =>
+      tail match {
+        case tailNode: IntListNode => tailNode.lastNode
+        case IntListEnd => intNode
+      }
+
+    case IntListEnd => throw new IllegalStateException("Last node of End")
+  }
+
 
 }
 
