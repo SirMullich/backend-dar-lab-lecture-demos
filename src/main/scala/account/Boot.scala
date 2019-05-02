@@ -16,13 +16,13 @@ object Boot extends App {
 
 
   // for Future
-  implicit val ec = system.dispatcher
-
-  scala.io.StdIn.readLine()
-  system.terminate().onComplete {
-    case Success(value) =>
-      println("system shutdown")
-    case Failure(exception) =>
-      println(exception.getMessage)
-  }
+//  implicit val ec = system.dispatcher
+//
+//  scala.io.StdIn.readLine()
+//  system.terminate().onComplete {
+//    case Success(value) =>
+//      println("system shutdown")
+//    case Failure(exception) =>
+//      println(exception.getMessage)
+//  }
 }

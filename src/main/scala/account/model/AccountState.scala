@@ -2,7 +2,7 @@ package account.model
 
 object AccountState {
   // empty AccountState
-  def empty() = AccountState("empty login", "empty password")
+  def empty() = AccountState("", "empty password")
 }
 
-case class AccountState(login: String, password: String)
+case class AccountState(email: String, password: String)
