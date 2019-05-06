@@ -9,6 +9,7 @@ object Account {
   case class CreateAccount(email: String, password: String)
   case class ChangePassword(oldPassword: String, newPassword: String)
   case class ErrorResponse(message: String)
+  case class Accepted(status: Int, message: String)
 
   def props(accountId: String) = Props(new Account(accountId))
 }
@@ -26,6 +27,7 @@ class Account(accountId: String) extends Actor with ActorLogging {
     case CreateAccount(email, password) =>
       log.debug(s"Received CreateAccount: $password")
       state = AccountState(email, password)
+      sender() ! Accepted(200, "OK")
       context.become(active)
 
     case GetLogin =>
